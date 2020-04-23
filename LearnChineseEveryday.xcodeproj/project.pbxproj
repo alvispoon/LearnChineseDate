@@ -13,6 +13,7 @@
 		F0EBB8612451817D00EA2838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0EBB85F2451817D00EA2838 /* Main.storyboard */; };
 		F0EBB8632451817F00EA2838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0EBB8622451817F00EA2838 /* Assets.xcassets */; };
 		F0EBB8662451817F00EA2838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0EBB8642451817F00EA2838 /* LaunchScreen.storyboard */; };
+		F0EBB86E2451899F00EA2838 /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EBB86D2451899F00EA2838 /* util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F0EBB8622451817F00EA2838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0EBB8652451817F00EA2838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0EBB8672451817F00EA2838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0EBB86D2451899F00EA2838 /* util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				F0EBB8592451817D00EA2838 /* AppDelegate.swift */,
 				F0EBB85B2451817D00EA2838 /* SceneDelegate.swift */,
 				F0EBB85D2451817D00EA2838 /* ViewController.swift */,
+				F0EBB86D2451899F00EA2838 /* util.swift */,
 				F0EBB85F2451817D00EA2838 /* Main.storyboard */,
 				F0EBB8622451817F00EA2838 /* Assets.xcassets */,
 				F0EBB8642451817F00EA2838 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				F0EBB85E2451817D00EA2838 /* ViewController.swift in Sources */,
 				F0EBB85A2451817D00EA2838 /* AppDelegate.swift in Sources */,
 				F0EBB85C2451817D00EA2838 /* SceneDelegate.swift in Sources */,
+				F0EBB86E2451899F00EA2838 /* util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +291,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U4WLYVZTV;
 				INFOPLIST_FILE = LearnChineseEveryday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +310,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U4WLYVZTV;
 				INFOPLIST_FILE = LearnChineseEveryday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
