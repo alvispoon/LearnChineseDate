@@ -7,88 +7,70 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController {
-//
-//
-//    String[] units = new String[] { "〇", "一", "二", "三", "四",
-//            "五", "六", "七", "八", "九"};
-    
-    let chineseNumber : [String] = ["〇", "一", "二", "三", "四","五", "六", "七", "八", "九"]
+class ViewController: UIViewController{
+
 
     @IBOutlet weak var speakerImage: UIImageView!
-    @IBOutlet weak var year1: UILabel!
-    @IBOutlet weak var year2: UILabel!
-    @IBOutlet weak var year3: UILabel!
-    @IBOutlet weak var year4: UILabel!
-    
-    @IBOutlet weak var month1: UILabel!
-    @IBOutlet weak var month2: UILabel!
+
+    var currentWord = 0
+    var sentence = ""
+    var speaking : Bool = false
     
     
-    @IBOutlet weak var day1: UILabel!
-    @IBOutlet weak var day2: UILabel!
+    @IBOutlet weak var SVMain: UIStackView!
+    @IBOutlet var LblText: [UILabel]!
     
-    @IBOutlet weak var dayTEN: UILabel!
+    var lblAllText: [UILabel]! = [UILabel]()
+    
+    
+    let synthesizer = AVSpeechSynthesizer()
+    
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        
+        synthesizer.delegate = self
+        
+        super.viewDidLoad()
         getToday()
         // Do any additional setup after loading the view.
-        speakNow(Intro: "今天是", Year: getYear(), Month: getMonth(), Day: getDate())
         
-        let yearStr = getYear()
-        let monthStr = getMonth()
-        let dayStr = getDate()
+        let yearStr = getChineseYear()
+        let monthStr = getChineseMonth()
+        let dayStr = getChineseDate()
+        sentence = "今天是\(yearStr)年\(monthStr)月\(dayStr)日"
+        //sentence = "今天是"
+        print (sentence)
         
-        let yearInt = Int(yearStr[yearStr.index(yearStr.startIndex, offsetBy: 0)..<yearStr.index(yearStr.startIndex, offsetBy: 1)])
-        let yearChinese = chineseNumber[yearInt!]
-        print (getChineseNumber(fromStr: yearStr, startChar: 2))
-        
-        year1.text = getChineseNumber(fromStr: yearStr, startChar: 0)
-        year2.text = getChineseNumber(fromStr: yearStr, startChar: 1)
-        year3.text = getChineseNumber(fromStr: yearStr, startChar: 2)
-        year4.text = getChineseNumber(fromStr: yearStr, startChar: 3)
-        
-        let dayInt = Int(dayStr)
-
-        
-        if ((dayInt!>20) && !(dayInt! == 30)){
-            dayTEN.isHidden = false
-            dayTEN.text = "十"
-        }else{
-            dayTEN.isHidden = true
+        for j in 0...LblText.count-1{
+            LblText[j].isHidden = true
         }
         
-
-        
-        month1.text = getChineseNumber(fromStr: monthStr, startChar: 0)
-        month2.text = getChineseNumber(fromStr: monthStr, startChar: 1)
-        day1.text = getChineseNumber(fromStr: dayStr, startChar: 0)
-        day2.text = getChineseNumber(fromStr: dayStr, startChar: 1)
-        
-        if (month1.text == chineseNumber[0]){
-            month1.isHidden = true
-        }else{
-            month1.isHidden = false
+        for i in 0...sentence.count-1{
+            let lbl1 = UILabel()
+            SVMain.addArrangedSubview(lbl1)
+            lbl1.text = String(sentence[sentence.index(sentence.startIndex, offsetBy: i)..<sentence.index(sentence.startIndex, offsetBy: i+1)])
+            lbl1.myLabel()
+            lblAllText.append(lbl1)
         }
-        if (day1.text == chineseNumber[0]){
-            day1.isHidden = true
-        }else{
-            day1.isHidden = false
-        }
-        //year1.text = chineseNumber[5]
         
+         speakNow(currentWord: currentWord)
+       
          speakerImage.isUserInteractionEnabled = true
          // Create and add the Gesture Recognizer
         let speakgesture = UITapGestureRecognizer(target: self, action: #selector(speakDate))
          speakerImage.addGestureRecognizer(speakgesture)
 
     }
+    
+    
+    
     @objc func speakDate(_ sender: Any) {
              print ("a")
-           speakNow(Intro: "今天是", Year: getYear(), Month: getMonth(), Day: getDate())
+        speakNow(currentWord: currentWord)
+          // speakNow(Intro: "今天是", Year: getYear(), Month: getMonth(), Day: getDate())
        }
 //
 //
@@ -102,10 +84,59 @@ class ViewController: UIViewController {
 //        return number
 //    }
 
-    func getChineseNumber(fromStr: String, startChar: Int) -> String{
-        let yearInt = Int(fromStr[fromStr.index(fromStr.startIndex, offsetBy: startChar)..<fromStr.index(fromStr.startIndex, offsetBy: startChar+1)])
-        return chineseNumber[yearInt!]
+    
+    func speak(say: String) {
+        
+        let utterance = AVSpeechUtterance(string: say)
+        utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
+        utterance.rate = 0.2
+        utterance.pitchMultiplier = 0.5
+        utterance.preUtteranceDelay = 0
+        utterance.volume = 1
+        synthesizer.speak(utterance)
+    }
+    
+    func speakNow(currentWord: Int){
+        speaking = true
+        lblAllText[currentWord].textColor = .blue
+        speak(say: String(sentence[sentence.index(sentence.startIndex, offsetBy: currentWord)..<sentence.index(sentence.startIndex, offsetBy: currentWord+1)]))
+    }
+    
+    func speakAll(say: String, charLbl: [UILabel]){
+        //
+        for i in 0...say.count-1{
+            speak(say: String(say[say.index(say.startIndex, offsetBy: i)..<say.index(say.startIndex, offsetBy: i+1)]))
+        }
     }
 
 }
 
+extension ViewController: AVSpeechSynthesizerDelegate {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        //Speaking is done, enable speech UI for next round
+        print ("COMPLETED")
+        currentWord += 1
+        if (currentWord<sentence.count){
+            speakNow(currentWord: currentWord)
+        }
+        else{
+            currentWord = 0
+            speaking = false
+            for i in 0...lblAllText.count-1{
+                lblAllText[i].textColor = .black
+            }
+        }
+    }
+}
+
+extension UILabel {
+    func myLabel() {
+        font = .boldSystemFont(ofSize: 30)
+        adjustsFontSizeToFitWidth = true
+        textAlignment = .center
+        textColor = .black
+        numberOfLines = 0
+        lineBreakMode = .byCharWrapping
+        minimumScaleFactor = 0.2
+    }
+}

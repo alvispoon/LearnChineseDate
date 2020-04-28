@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,8 +19,8 @@
                                 <rect key="frame" x="0.0" y="10" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcV-Oy-5PQ">
-                                        <rect key="frame" x="172.5" y="0.0" width="30.5" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <rect key="frame" x="138" y="0.0" width="99.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="99"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -96,7 +96,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="十" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9H-64-qzx">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="十" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9H-64-qzx">
                                         <rect key="frame" x="172.5" y="535.5" width="30.5" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -116,24 +116,32 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="e4m-TS-Gxc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3Bu-Ga-eRx"/>
                             <constraint firstItem="e4m-TS-Gxc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-10" id="Cc2-Ak-xzI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e4m-TS-Gxc" secondAttribute="trailing" id="OXq-IJ-FO8"/>
+                            <constraint firstAttribute="trailing" secondItem="e4m-TS-Gxc" secondAttribute="trailing" id="D7x-sw-6Oy"/>
                             <constraint firstItem="e4m-TS-Gxc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TQw-Se-wFU"/>
                             <constraint firstItem="e4m-TS-Gxc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="ucm-8Y-L3G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="day1" destination="SiB-uv-onF" id="6Dm-S1-1sh"/>
-                        <outlet property="day2" destination="r9H-64-qzx" id="OwA-A2-efE"/>
-                        <outlet property="dayTEN" destination="P0A-eb-OVs" id="SsY-V2-21F"/>
-                        <outlet property="month1" destination="bcD-p6-Gf1" id="iDo-71-E1D"/>
-                        <outlet property="month2" destination="LpR-D3-c2t" id="keQ-oz-Oam"/>
+                        <outlet property="SVMain" destination="e4m-TS-Gxc" id="bao-kg-C3m"/>
                         <outlet property="speakerImage" destination="UTy-hs-v4y" id="AO4-al-ErL"/>
-                        <outlet property="year1" destination="Yhg-dZ-SQu" id="uqL-fN-kNU"/>
-                        <outlet property="year2" destination="1pg-GA-isq" id="rao-zO-Z6O"/>
-                        <outlet property="year3" destination="dmA-tD-e9m" id="UGW-uT-fuW"/>
-                        <outlet property="year4" destination="9tF-ES-GB4" id="U9c-AK-H8z"/>
+                        <outletCollection property="LblText" destination="pcV-Oy-5PQ" collectionClass="NSMutableArray" id="7S1-MT-AwJ"/>
+                        <outletCollection property="LblText" destination="8WQ-8Q-Jew" collectionClass="NSMutableArray" id="51O-kb-Vw5"/>
+                        <outletCollection property="LblText" destination="zPG-Br-lxZ" collectionClass="NSMutableArray" id="iDt-68-Dd6"/>
+                        <outletCollection property="LblText" destination="Yhg-dZ-SQu" collectionClass="NSMutableArray" id="j6B-PZ-q5c"/>
+                        <outletCollection property="LblText" destination="1pg-GA-isq" collectionClass="NSMutableArray" id="noC-4h-ZNg"/>
+                        <outletCollection property="LblText" destination="dmA-tD-e9m" collectionClass="NSMutableArray" id="93P-3z-bp6"/>
+                        <outletCollection property="LblText" destination="9tF-ES-GB4" collectionClass="NSMutableArray" id="vGE-wm-xlc"/>
+                        <outletCollection property="LblText" destination="lj8-dA-Olm" collectionClass="NSMutableArray" id="0Nl-CW-QOn"/>
+                        <outletCollection property="LblText" destination="bcD-p6-Gf1" collectionClass="NSMutableArray" id="Axi-eX-qdf"/>
+                        <outletCollection property="LblText" destination="LpR-D3-c2t" collectionClass="NSMutableArray" id="yKG-Ys-RIt"/>
+                        <outletCollection property="LblText" destination="MCq-cC-PvH" collectionClass="NSMutableArray" id="b29-9g-0Gw"/>
+                        <outletCollection property="LblText" destination="SiB-uv-onF" collectionClass="NSMutableArray" id="qvm-kH-5ma"/>
+                        <outletCollection property="LblText" destination="P0A-eb-OVs" collectionClass="NSMutableArray" id="uNP-lF-dlU"/>
+                        <outletCollection property="LblText" destination="r9H-64-qzx" collectionClass="NSMutableArray" id="XaR-pI-pCj"/>
+                        <outletCollection property="LblText" destination="AXW-5q-zC0" collectionClass="NSMutableArray" id="peP-vU-eJv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
