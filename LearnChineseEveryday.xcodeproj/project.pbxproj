@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0378D9B2467E81700DC897A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F0378D9A2467E81700DC897A /* Settings.bundle */; };
+		F0378D9D2467E90F00DC897A /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0378D9C2467E90F00DC897A /* SettingsBundleHelper.swift */; };
 		F0EBB85A2451817D00EA2838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EBB8592451817D00EA2838 /* AppDelegate.swift */; };
 		F0EBB85C2451817D00EA2838 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EBB85B2451817D00EA2838 /* SceneDelegate.swift */; };
 		F0EBB85E2451817D00EA2838 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EBB85D2451817D00EA2838 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F0378D9A2467E81700DC897A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F0378D9C2467E90F00DC897A /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		F0EBB8562451817D00EA2838 /* LearnChineseEveryday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnChineseEveryday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0EBB8592451817D00EA2838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0EBB85B2451817D00EA2838 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,11 +65,13 @@
 				F0EBB8592451817D00EA2838 /* AppDelegate.swift */,
 				F0EBB85B2451817D00EA2838 /* SceneDelegate.swift */,
 				F0EBB85D2451817D00EA2838 /* ViewController.swift */,
+				F0378D9A2467E81700DC897A /* Settings.bundle */,
 				F0EBB86D2451899F00EA2838 /* util.swift */,
 				F0EBB85F2451817D00EA2838 /* Main.storyboard */,
 				F0EBB8622451817F00EA2838 /* Assets.xcassets */,
 				F0EBB8642451817F00EA2838 /* LaunchScreen.storyboard */,
 				F0EBB8672451817F00EA2838 /* Info.plist */,
+				F0378D9C2467E90F00DC897A /* SettingsBundleHelper.swift */,
 			);
 			path = LearnChineseEveryday;
 			sourceTree = "<group>";
@@ -128,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0378D9B2467E81700DC897A /* Settings.bundle in Resources */,
 				F0EBB8662451817F00EA2838 /* LaunchScreen.storyboard in Resources */,
 				F0EBB8632451817F00EA2838 /* Assets.xcassets in Resources */,
 				F0EBB8612451817D00EA2838 /* Main.storyboard in Resources */,
@@ -144,6 +151,7 @@
 				F0EBB85E2451817D00EA2838 /* ViewController.swift in Sources */,
 				F0EBB85A2451817D00EA2838 /* AppDelegate.swift in Sources */,
 				F0EBB85C2451817D00EA2838 /* SceneDelegate.swift in Sources */,
+				F0378D9D2467E90F00DC897A /* SettingsBundleHelper.swift in Sources */,
 				F0EBB86E2451899F00EA2838 /* util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
